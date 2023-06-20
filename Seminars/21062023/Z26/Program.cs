@@ -4,12 +4,21 @@
 89126 -> 5
 */
 // Создаю переменную Ui - User Input с запросом на ввод
-    Console.Write("Пожалуйста, число: ");
+    Console.Write("Пожалуйста, введите число: ");
     string Ui = Console.ReadLine();
-//
-    int math = int.TryParse(Ui);
-    if(math > 0)
+    int count = 0;
+// Распределяю ввод на разные решения
+    bool math = int.TryParse(Ui, out var num);
+    if(math == true)
     {
-
+        while(num != 0)
+        {
+            num /= 10;
+            count ++;
+        }
+        Console.Write("В этом числе " + count + " цифр.");
     }
-    
+    else
+    {
+        Console.Write("В этом числе " + Ui.Length + " цифр.");
+    }
