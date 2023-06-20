@@ -7,7 +7,10 @@ string Ui = string.Empty;
 
     Console.Write("Пожалуйста, введите римское число: ");
     Ui = (Console.ReadLine());
-
+    for (int i = 0; i < Ui.Length - 1; i++)
+    {
+        if (Ui[i] == 'I')
+    }
         
     Dictionary<char, int> romanDigits = new()
     {
