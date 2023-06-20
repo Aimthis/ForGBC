@@ -6,13 +6,14 @@
     Console.Write("Пожалуйста, введите число: ");
     int Ui = int.Parse(Console.ReadLine());
 // Задаю метод факториала
-    double GetFactorial(int a)
+    Int128 GetFactorial(int a)
     {
-        int result = 1;
-        for(int i = 1; i < a; i++)
+        Int128 result = 1;
+        for(int i = 1; i <= a; i++)
         {
             result *= i;
         }
+        return result;
     }
 // Вывод в консоль
     Console.Write(GetFactorial(Ui));
