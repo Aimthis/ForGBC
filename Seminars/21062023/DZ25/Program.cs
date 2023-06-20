@@ -5,7 +5,7 @@ int Sn = new Random().Next(0,10);
 Console.WriteLine("Пусть первое число " + Fn + " и второе число " + Sn);
 // Возводим Fn в степень Sn с помощью цикла и выводим результат Res - Result
 int Res = Fn;
-while(Sn != 0)
+while(Sn != 1)
 {
     Res *= Fn;
     Sn--;
