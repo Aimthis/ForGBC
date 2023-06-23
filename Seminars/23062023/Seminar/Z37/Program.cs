@@ -3,7 +3,7 @@
 [6 7 3 6] -> 36 21
 */
 // Создаем массив на 8 чисел и случайными значениями внутри от 0 до 9  
-int[] array = new int[8];
+int[] array = new int[9];
 for(int i = 0; i < array.Length; i++)
 {
     array[i] = new Random().Next(0,10);
@@ -20,6 +20,8 @@ if (array.Length % 2 == 0)
 else
 {
     res = new int[array.Length / 2 + 1];
+    res[res.Length - 1] = array[array.Length / 2];
+    Console.WriteLine("Данный массив содержит не четное число элементов и среднее значение " + res[res.Length - 1] + " не имеет пары. Оно будет последним в итоговом массиве.");
 }
 // переменные для подсчета и записи в массив результата
 int count = 0;
@@ -43,6 +45,7 @@ for(int j = 0; j < array.Length / 2; j++)
     }
 }
 Console.WriteLine(" ");
+// Массив результата выводим в консоль
 Console.Write("Итоговый массив : ");
 for(int g = 0; g < res.Length; g++)
 {
