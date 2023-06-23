@@ -19,4 +19,4 @@ for(int j = 0; j < array.Length; j++)
     }
 }
 
-Console.Write("В этом массиве: " + sum + " положительных чисел");
+Console.Write("В этом массиве сумма: " + sum + " отрицательных чисел");
