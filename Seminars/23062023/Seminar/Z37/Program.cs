@@ -3,7 +3,7 @@
 [6 7 3 6] -> 36 21
 */
 // Создаем массив на 8 чисел и случайными значениями внутри от 0 до 9  
-int[] array = new int[9];
+int[] array = new int[8];
 for(int i = 0; i < array.Length; i++)
 {
     array[i] = new Random().Next(0,10);
