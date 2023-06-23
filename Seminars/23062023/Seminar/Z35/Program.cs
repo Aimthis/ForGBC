@@ -17,8 +17,10 @@ int count = 0;
 // цикл на подсчет элементов
 for(int j = 0; j < array.Length; j++)
 {
-    if(array[j] > 9 && array < 100)
+    int sravneniya = array[j];
+    if(sravneniya > 9 && sravneniya < 100)
     {
-        Count += 1;
+        count += 1;
     }
 }
+Console.Write("Колличество значений которые лежат в отрезке [10,99] : " + count);
