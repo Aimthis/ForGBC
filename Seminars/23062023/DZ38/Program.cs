@@ -16,5 +16,13 @@ double min = array[array.Length - 1];
 // Поиск максимального и минимального элемента массива
 for(int j = 0; j < array.Length; j++)
 {
-    if(max)
+    if(min > array[j])
+    {
+        min = array[j];
+    }
+    if(max < array[array.Length - (j + 1)])
+    {
+        max = array[array.Length - (j + 1)];
+    }
 }
+Console.Write("Разница между максимальным значением элемента массива: " + max + " и минимальным: " + min + " равно: " + (max + min));
