@@ -6,32 +6,33 @@
     Console.Write("Пожалуйста, введите первое число: ");
     double Ui = double.Parse(Console.ReadLine());
     Console.WriteLine(Ui);
-    short A = 0;
-while(A > 0 && A < 4)
+    double Sui = 0;
+    int a = 0;
+while(a < 1 || a > 4)
 {
     Console.WriteLine("Выберите действие:");
         Console.WriteLine("1. + (Сложение)");
         Console.WriteLine("2. - (Вычетание)");
         Console.WriteLine("3. * (Произведение)");
-        Console.WriteLine("4. / (Деления)");
-    short A = short.Parse(Console.ReadLine());
+        Console.WriteLine("4. / (Деление)");
+    a = int.Parse(Console.ReadLine());
 }
-if(A = 4)
-    while(Sui != 0)
+if(a == 4)
+    while(Sui == 0)
     {
         Console.Write("Пожалуйста, введите второе число(не должно быть равно нулю): ");
-        double Sui = double.Parse(Console.ReadLine());
+        Sui = double.Parse(Console.ReadLine());
         Console.WriteLine(Sui);
     }
 else
 {
     Console.Write("Пожалуйста, введите второе число: ");
-    double Sui = double.Parse(Console.ReadLine());
+    Sui = double.Parse(Console.ReadLine());
     Console.WriteLine(Sui);
 }
 // Создаем переменную для результата и условия решения в зависимости от выбранного действия А
 double res = 0;
-switch (A)
+switch (a)
 {
     case 1:
         res = Ui + Sui;
@@ -48,7 +49,7 @@ switch (A)
     default:
         break;
 }
-Console.Write("Пожалуйста, введите второе число: ");
+Console.Write("Ответ : " + res);
 
 
 
