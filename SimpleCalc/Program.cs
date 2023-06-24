@@ -1,27 +1,29 @@
 ﻿// Задача: Создать простой калькулятор на 4 действия - сложения, вычетания, произведения и деления.
 
-// Создаю переменную Ui - User Input с запросом на ввод
-// Переменная Sui - Second User Input
-// Запрос действия A - action
-
-    Console.Clear();
+// Переменные для цикла повтора вычислений с новыми значениями
+string Checkout = string.Empty;
+bool endit = false;    
 do
 {
-    Console.Write("Пожалуйста, введите первое число: ");
-    double Ui = double.Parse(Console.ReadLine());
-    double Sui = 0;
-    string a = "0";
-while(int.Parse(a[0].ToString()) < 1 || int.Parse(a[0].ToString()) > 4)
-{
-    Console.WriteLine("Выберите действие:");
-        Console.WriteLine("1. + (Сложение)");
-        Console.WriteLine("2. - (Вычетание)");
-        Console.WriteLine("3. * (Произведение)");
-        Console.WriteLine("4. / (Деление)");
-    a = Console.ReadLine();
-    // Распределяю ввод на значения по цифрам и символам
-    bool Check = int.TryParse(a, out var num);
-    if(Check == false)
+        // Создаю переменную Ui - User Input с запросом на ввод
+        // Переменная Sui - Second User Input
+        // Запрос действия A - action
+        Console.Clear();
+        Console.Write("Пожалуйста, введите первое число: ");
+        double Ui = double.Parse(Console.ReadLine());
+        double Sui = 0;
+        string a = "0";
+    while(int.Parse(a[0].ToString()) < 1 || int.Parse(a[0].ToString()) > 4)
+    {
+        Console.WriteLine("Выберите действие:");
+            Console.WriteLine("1. + (Сложение)");
+            Console.WriteLine("2. - (Вычетание)");
+            Console.WriteLine("3. * (Произведение)");
+            Console.WriteLine("4. / (Деление)");
+        a = Console.ReadLine();
+        // Распределяю ввод на значения по цифрам и символам
+        bool Check = int.TryParse(a, out var num);
+        if(Check == false)
         {
             if(a == "/" || a == "Деление" || a == "деление")
                 a = "4";   
@@ -31,7 +33,7 @@ while(int.Parse(a[0].ToString()) < 1 || int.Parse(a[0].ToString()) > 4)
                 a = "0";
             }
         }
-    else
+        else
         {
             if(a.Length != 1)
                 {
@@ -66,8 +68,25 @@ else
     Console.WriteLine("Возникла не предвиденная ошибка.");
     Environment.Exit(0);
 }
-Console.Write("Ответ : " + res);
-} while (input.Key != ConsoleKey.Escape);
+Console.WriteLine("Ответ : " + res);
+Checkout = "0";
+Console.WriteLine("Посчитать другие значения?");
+while(Checkout != "1")
+{
+    Console.WriteLine("Введите : Да(Yes) или Нет(No)");
+    Checkout = Console.ReadLine();
+    if(Checkout == "Yes" || Checkout == "Да" || Checkout == "Y" || Checkout == "Д" || Checkout == "y" || Checkout == "д")
+        {
+            endit = false;
+            Checkout = "1";
+        }
+    if(Checkout == "No" || Checkout == "Нет" || Checkout == "N" || Checkout == "Н" || Checkout == "n" || Checkout == "н")
+        {
+            endit = true;
+            Checkout = "1";
+        }   
+}
+} while (endit == false);
 
 
 
