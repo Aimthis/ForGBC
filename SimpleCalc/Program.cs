@@ -8,9 +8,19 @@ do
         // Создаю переменную Ui - User Input с запросом на ввод
         // Переменная Sui - Second User Input
         // Запрос действия A - action
+        double Ui = 0;
         Console.Clear();
-        Console.Write("Пожалуйста, введите первое число: ");
-        double Ui = double.Parse(Console.ReadLine());
+        try
+        {
+            Console.Write("Пожалуйста, введите первое число: ");
+            Ui = double.Parse(Console.ReadLine());    
+        }
+        catch (System.Exception)
+        {
+            Console.Write("Неудалось преобразовать строку в число. Попробуйте снова.");
+            Console.ReadLine();
+            continue;
+        }
         double Sui = 0;
         string a = "0";
     while(int.Parse(a[0].ToString()) < 1 || int.Parse(a[0].ToString()) > 4)
@@ -48,16 +58,26 @@ do
                 }       
         }        
 }
-if(a == "4" || a == "/" || a == "Деление" || a == "деление")
-    while(Sui == 0)
+try
+{
+    if(a == "4" || a == "/" || a == "Деление" || a == "деление")
+        while(Sui == 0)
+        {
+            Console.Write("Пожалуйста, введите второе число(не должно быть равно нулю): ");
+            Sui = double.Parse(Console.ReadLine());
+        }
+    else
     {
-        Console.Write("Пожалуйста, введите второе число(не должно быть равно нулю): ");
+        Console.Write("Пожалуйста, введите второе число: ");
         Sui = double.Parse(Console.ReadLine());
     }
-else
+    
+}
+catch (System.Exception)
 {
-    Console.Write("Пожалуйста, введите второе число: ");
-    Sui = double.Parse(Console.ReadLine());
+            Console.Write("Неудалось преобразовать строку в число. Попробуйте снова.");
+            Console.ReadLine();
+            continue;
 }
 // Создаем переменную для результата и условия решения в зависимости от выбранного действия А
 double res = 0;
@@ -79,7 +99,7 @@ Checkout = "0";
 Console.WriteLine("Посчитать другие значения?");
 while(Checkout != "1")
 {
-    Console.WriteLine("Введите : Да(Yes) или Нет(No)");
+    Console.WriteLine("Введите : Да(Y) или Нет(N)");
     Checkout = Console.ReadLine();
     if(Checkout == "Yes" || Checkout == "Да" || Checkout == "Y" || Checkout == "Д" || Checkout == "y" || Checkout == "д")
         {
