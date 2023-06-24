@@ -3,7 +3,10 @@
 // Создаю переменную Ui - User Input с запросом на ввод
 // Переменная Sui - Second User Input
 // Запрос действия A - action
+
     Console.Clear();
+do
+{
     Console.Write("Пожалуйста, введите первое число: ");
     double Ui = double.Parse(Console.ReadLine());
     double Sui = 0;
@@ -64,7 +67,7 @@ else
     Environment.Exit(0);
 }
 Console.Write("Ответ : " + res);
-
+} while (input.Key != ConsoleKey.Escape);
 
 
 
