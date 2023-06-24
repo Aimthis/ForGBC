@@ -1,13 +1,13 @@
 ﻿// Задача: Создать простой калькулятор на 4 действия - сложения, вычетания, произведения и деления.
 
 // Создаю переменную Ui - User Input с запросом на ввод
-// Запрос действия A - action
 // Переменная Sui - Second User Input
+// Запрос действия A - action
     Console.Write("Пожалуйста, введите первое число: ");
     double Ui = double.Parse(Console.ReadLine());
     double Sui = 0;
-    string a = string.Empty;
-while(int.Parse(a[i].ToString()) < 1 || int.Parse(a[i].ToString()) > 4)
+    string a = "0";
+while(int.Parse(a[0].ToString()) < 1 || int.Parse(a[0].ToString()) > 4)
 {
     Console.WriteLine("Выберите действие:");
         Console.WriteLine("1. + (Сложение)");
@@ -20,7 +20,7 @@ while(int.Parse(a[i].ToString()) < 1 || int.Parse(a[i].ToString()) > 4)
     if(Check == false)
         break;
 }
-if(a == 4)
+if(a == "4" || a == "/" || a == "Деление" || a == "деление")
     while(Sui == 0)
     {
         Console.Write("Пожалуйста, введите второе число(не должно быть равно нулю): ");
@@ -34,37 +34,17 @@ else
 }
 // Создаем переменную для результата и условия решения в зависимости от выбранного действия А
 double res = 0;
-switch (a)
-{
-    case "1":
+if (a == "1" || a == "+" || a == "Сложение" || a == "cложение")
         res = Ui + Sui;
-        break;
-    case "2":
+else if (a == "2" || a == "-" || a == "Вычетание" || a == "вычетание")
         res = Ui - Sui;
-        break;
-    case "3":
+else if (a == "3" || a == "*" || a == "Произведение" || a == "произведение")
         res = Ui * Sui;
-        break;
-    case "4":
+else if (a == "4" || a == "/" || a == "Деление" || a == "деление" && Sui != 0)
         res = Ui / Sui;
-        break;
-    case "+":
-        res = Ui + Sui;
-        break;
-    case "-":
-        res = Ui - Sui;
-        break;
-    case "*":
-        res = Ui * Sui;
-        break;
-    case "/":
-        res = Ui / Sui;
-        break;
-    
-    default:
+else
     Console.Write("Возникла не предвиденная ошибка. Возможно введено неизвестное действие.");
-        break;
-}
+
 Console.Write("Ответ : " + res);
 
 
