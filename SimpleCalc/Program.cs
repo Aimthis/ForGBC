@@ -3,6 +3,7 @@
 // Создаю переменную Ui - User Input с запросом на ввод
 // Переменная Sui - Second User Input
 // Запрос действия A - action
+    Console.Clear();
     Console.Write("Пожалуйста, введите первое число: ");
     double Ui = double.Parse(Console.ReadLine());
     double Sui = 0;
@@ -18,7 +19,23 @@ while(int.Parse(a[0].ToString()) < 1 || int.Parse(a[0].ToString()) > 4)
     // Распределяю ввод на значения по цифрам и символам
     bool Check = int.TryParse(a, out var num);
     if(Check == false)
-        break;
+        {
+            if(a == "/" || a == "Деление" || a == "деление")
+                a = "4";   
+            else
+            {
+                Console.WriteLine("Пожалуйста введите известное действие");
+                a = "0";
+            }
+        }
+    else
+        {
+            if(a.Length != 1)
+                {
+                Console.WriteLine("Пожалуйста введите известное действие");
+                a = "0";
+                }       
+        }        
 }
 if(a == "4" || a == "/" || a == "Деление" || a == "деление")
     while(Sui == 0)
@@ -30,7 +47,6 @@ else
 {
     Console.Write("Пожалуйста, введите второе число: ");
     Sui = double.Parse(Console.ReadLine());
-    Console.WriteLine(Sui);
 }
 // Создаем переменную для результата и условия решения в зависимости от выбранного действия А
 double res = 0;
@@ -43,8 +59,10 @@ else if (a == "3" || a == "*" || a == "Произведение" || a == "про
 else if (a == "4" || a == "/" || a == "Деление" || a == "деление" && Sui != 0)
         res = Ui / Sui;
 else
-    Console.Write("Возникла не предвиденная ошибка. Возможно введено неизвестное действие.");
-
+{
+    Console.WriteLine("Возникла не предвиденная ошибка.");
+    Environment.Exit(0);
+}
 Console.Write("Ответ : " + res);
 
 
