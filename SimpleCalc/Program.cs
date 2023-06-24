@@ -5,24 +5,26 @@
 // Переменная Sui - Second User Input
     Console.Write("Пожалуйста, введите первое число: ");
     double Ui = double.Parse(Console.ReadLine());
-    Console.WriteLine(Ui);
     double Sui = 0;
-    int a = 0;
-while(a < 1 || a > 4)
+    string a = string.Empty;
+while(int.Parse(a[i].ToString()) < 1 || int.Parse(a[i].ToString()) > 4)
 {
     Console.WriteLine("Выберите действие:");
         Console.WriteLine("1. + (Сложение)");
         Console.WriteLine("2. - (Вычетание)");
         Console.WriteLine("3. * (Произведение)");
         Console.WriteLine("4. / (Деление)");
-    a = int.Parse(Console.ReadLine());
+    a = Console.ReadLine();
+    // Распределяю ввод на значения по цифрам и символам
+    bool Check = int.TryParse(a, out var num);
+    if(Check == false)
+        break;
 }
 if(a == 4)
     while(Sui == 0)
     {
         Console.Write("Пожалуйста, введите второе число(не должно быть равно нулю): ");
         Sui = double.Parse(Console.ReadLine());
-        Console.WriteLine(Sui);
     }
 else
 {
@@ -34,19 +36,33 @@ else
 double res = 0;
 switch (a)
 {
-    case 1:
+    case "1":
         res = Ui + Sui;
         break;
-    case 2:
+    case "2":
         res = Ui - Sui;
         break;
-    case 3:
+    case "3":
         res = Ui * Sui;
         break;
-    case 4:
+    case "4":
         res = Ui / Sui;
         break;
+    case "+":
+        res = Ui + Sui;
+        break;
+    case "-":
+        res = Ui - Sui;
+        break;
+    case "*":
+        res = Ui * Sui;
+        break;
+    case "/":
+        res = Ui / Sui;
+        break;
+    
     default:
+    Console.Write("Возникла не предвиденная ошибка. Возможно введено неизвестное действие.");
         break;
 }
 Console.Write("Ответ : " + res);
