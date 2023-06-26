@@ -40,3 +40,17 @@ public class Solution {
         return new int[]{a,b};
     }
 }
+/*176ms 44.2MB
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        int i = 0, j = 0;
+        for(i = 0; i < nums.Length; i++){
+            for(j = nums.Length - 1; j > i; j--){
+                if(target == nums[i] + nums[j]){
+                return new int[]{i,j};
+                }
+            }
+        }
+        return new int[]{i,j};
+    }
+}*/
