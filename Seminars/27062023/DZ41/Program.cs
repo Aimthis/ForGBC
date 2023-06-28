@@ -17,7 +17,7 @@ while(Ui != "q"){
 int Check = 0;
 string Positive = string.Empty;
 int count = 0;
-Console.WriteLine("Среди ввода есть следующие положительные числа :");
+Console.Write("Среди ввода есть следующие положительные числа : ");
 // Создаю цикл для определения количества положительных чисел
 for(int i = 0; i < Aui.Length;i++){
     // Обнуляю переменную Ui для перевода типа char в string и последующего сравнения
@@ -40,7 +40,19 @@ for(int i = 0; i < Aui.Length;i++){
     // Веду учет и сохраняю положительные числа до пробела после чередующихся
     else if(Ui == "0" || Ui == "1" || Ui == "2" || Ui == "3" || Ui == "4" || Ui == "5" || Ui == "6" || Ui == "7" || Ui == "8" || Ui == "9"){
         Check = int.Parse(Ui);
+        if(Check > 0)
         Positive += Check;
+        else{
+            Ui = string.Empty;
+            try{
+                Ui += Aui[i - 1];
+            }
+            catch (System.Exception){
+                break;
+            }
+            if(Ui == "0" || Ui == "1" || Ui == "2" || Ui == "3" || Ui == "4" || Ui == "5" || Ui == "6" || Ui == "7" || Ui == "8" || Ui == "9")
+                Positive += "0";
+        }
         Ui = string.Empty;
         Ui += Aui[i + 1];
         if(Ui == " ")
@@ -59,4 +71,5 @@ for(int k = 0;k < Positive.Length; k++){
     else
         Console.Write(Positive[k]);        
 }
+Console.WriteLine();
 Console.Write("Введено " + count + " положительных чисел");
