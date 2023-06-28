@@ -41,16 +41,20 @@ for(int i = 0; i < Aui.Length;i++){
     else if(Ui == "0" || Ui == "1" || Ui == "2" || Ui == "3" || Ui == "4" || Ui == "5" || Ui == "6" || Ui == "7" || Ui == "8" || Ui == "9"){
         Check = int.Parse(Ui);
         if(Check > 0)
-        Positive += Check;
+            Positive += Check;
         else{
             Ui = string.Empty;
             try{
                 Ui += Aui[i - 1];
             }
             catch (System.Exception){
-                break;
+                Ui = string.Empty;
+                continue;
             }
-            if(Ui == "0" || Ui == "1" || Ui == "2" || Ui == "3" || Ui == "4" || Ui == "5" || Ui == "6" || Ui == "7" || Ui == "8" || Ui == "9")
+            if(Ui == "0" || Ui == "1" || Ui == "2" || Ui == "3" || Ui == "4" || Ui == "5" || Ui == "6" || Ui == "7" || Ui == "8" || Ui == "9" || Ui == " ")
+                Positive += "0";
+            Ui += Aui[i + 1];
+            if(Ui == "0" || Ui == "1" || Ui == "2" || Ui == "3" || Ui == "4" || Ui == "5" || Ui == "6" || Ui == "7" || Ui == "8" || Ui == "9" || Ui == " ")
                 Positive += "0";
         }
         Ui = string.Empty;
