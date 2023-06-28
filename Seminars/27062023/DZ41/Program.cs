@@ -76,4 +76,4 @@ for(int k = 0;k < Positive.Length; k++){
         Console.Write(Positive[k]);        
 }
 Console.WriteLine();
-Console.Write("Введено " + count + " положительных чисел");
+Console.Write("Введено следующее колличество положительных чисел : " + count);
