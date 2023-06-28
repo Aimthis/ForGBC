@@ -8,7 +8,7 @@ for(int i = 0; i < array.Length; i++)
     Console.Write(array[i] + " ");
 }
 Console.WriteLine(" ");
-double[] copy = new double[array.Length];
+
 Console.Write("Копия массива содрежит следующие эллементы: ");
 for(int j = 0; j < array.Length; j++)
 {
