@@ -1,19 +1,27 @@
 ﻿/*Задача 43. Напишите программу, которая найдёт точку пересечения двух прямых,
  заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.*/
 
-// Создаю строковую переменную Aui - all user input для сбора данных и Ui - user input для ввода
-string Aui = string.Empty;
+// Создаю массив Aui - all user input для сбора данных и строковую переменную Ui - user input для ввода
+double[] Aui = new double[];
 string Ui = string.Empty;
 
 // Создаю запрос на ввод в цикле до ввода 4 значений
 Console.Clear();
+Сonsole.WriteLine("Введите числа 1 = b1; 2 = k1; 3 = b2; 4 = k2");
 while(Aui.Length < 4){
     Console.Write("Введите " + Aui.Length + " число : ");
-    Ui = Console.ReadLine();
+    Сonsole.WriteLine();
+    try{
+    Ui = Console.ReadLine();    
+    }
+    catch (System.Exception){
+        throw;
+    }
     Aui += Ui;
 }
 
-Console.Write("Точка пересечения двух прямых : ");
+Console.Write($"Точка пересечения двух прямых : y = {Aui[1]} * x + {Aui[0]}, y = {Aui[3]} * x + {Aui[2]}");
+Console.Write($"Имеет координаты");
 int x = 0;
 int y = 0;
 while(Aui[1] * x + Aui[0] != y){
