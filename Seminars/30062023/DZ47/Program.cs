@@ -11,7 +11,7 @@ double[,] matrix = new double[rows,colums];
 for(int i = 0; i < rows; i++){
     Console.WriteLine();
     for(int j = 0; j < colums; j++){
-        matrix[i,j] = new Random().NextDouble(-1,2);
+        matrix[i,j] = new Random().NextDouble();
         Console.Write(" " + matrix[i,j]);
     }
 }
