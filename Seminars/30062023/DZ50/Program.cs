@@ -16,12 +16,10 @@ Console.WriteLine(" ");
 Console.Write("Пожалуйста, введите столбец: ");
 int searchColumn = int.Parse(Console.ReadLine());
 
-try
-{
+try{
     Console.WriteLine($"Элемент в строке {searchString} и столбце {searchColumn} имеет значение : " + matrix[searchString,searchColumn]);
 }
-catch (System.Exception)
-{
+catch (System.Exception){
     Console.WriteLine("В массиве нет такого элемента");
     Environment.Exit(1);
 }
