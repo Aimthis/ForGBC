@@ -3,14 +3,14 @@
 Console.Clear();
 int rowsN = StringToInt("Пожалуйста, введите количество строк треугольника Паскаля: ");
 double[,] pascalData = new double[rowsN,rowsN+1];
-pascalData[0,0] = 1;
-Console.WriteLine(pascalData[0,0] + " ");
-pascalData[1,0] = 1;
-pascalData[1,1] = 1;
-Console.WriteLine(pascalData[1,0] + " " + pascalData[1,1]);
+pascalData[0,rowsN/2] = 1;
+Console.WriteLine(pascalData[0,rowsN/2] + " ");
+pascalData[1,rowsN/2] = 1;
+pascalData[1,rowsN/2+1] = 1;
+Console.WriteLine(pascalData[1,rowsN/2] + " " + pascalData[1,rowsN/2+1]);
 for(int i=2;i<pascalData.GetLength(0);i++){
-    pascalData[i,0] = 1;
-    for(int j=1; j<pascalData.GetLength(1); j++){
+    pascalData[i,rowsN/2-i] = 1;
+    for(int j=rowsN/2; j<pascalData.GetLength(1); j++){
     pascalData[i,j]+=pascalData[i-1,j]+pascalData[i-1,j-1];
     Console.Write(pascalData[i,j] + " ");
     }
