@@ -17,51 +17,76 @@
 Console.Clear();
 Console.WriteLine("Создан двумерный массив содержащий следующие значения:");
 Console.WriteLine(" ");
-double[,] matrix = new double[new Random().Next(4,7),new Random().Next(4,7)];
-for(int i = 0; i < matrix.GetLength(0);i++){
-    for(int j = 0; j < matrix.GetLength(1);j++){
-        matrix[i,j] = new Random().Next(0,10);
-        Console.Write(" " + matrix[i,j]);
+double[,] matrix = new double[new Random().Next(4, 7), new Random().Next(4, 7)];
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        matrix[i, j] = new Random().Next(0, 10);
+        Console.Write(" " + matrix[i, j]);
     }
     Console.WriteLine(" ");
 }
 // Ищу минимальные значения
-int min = 10;
-for(int i = 0; i < matrix.GetLength(0);i++){
-    for(int j = 0; j < matrix.GetLength(1);j++){
-        if(min > matrix[i,j])
-            min = matrix[i,j];
-        }
+double min = 10;
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        if (min > matrix[i, j])
+            min = matrix[i, j];
+    }
 }
-// Cчитаю количество строк и столбцов с минимальным значением
-int strsToCut = 0;
-int columsToCut = 0;
-string minposition = string.Empty;
-for(int i = 0; i < matrix.GetLength(0);i++){
-    for(int j = 0; j < matrix.GetLength(1);j++){
-        if(min == matrix[i,j]){
-            strsToCut++;
-            columsToCut++;
-            minposition += i + j;
+// Ищу максимальный индекс строки и столбца минимального значения
+int strToCut = 0;
+int columToCut = 0;
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        if (min == matrix[i, j])
+        {
+            strToCut = i;
+            columToCut = j;
         }
     }
 }
-double[,] newMatrix = new double[matrix.GetLength(0)-columsToCut,matrix.GetLength(1)-strsToCut];
-while(minposition != null){
-int minPositionOfStr = Convert.ToInt32(minposition[0]);
-int minPositionOfCol = Convert.ToInt32(minposition[1]);
-for(int i = 0; i < matrix.GetLength(0);i++){
-    for(int j = 0; j < matrix.GetLength(1);j++){
-        if(minPositionOfStr == i){
-        }
-        for(int k = 0; k < newMatrix.GetLength(0);k++){
-            if(min != matrix[i,k])
-                newMatrix[j,k] = matrix[i,k];
-            else
+Console.WriteLine(" ");
+Console.WriteLine("После удаления строк и столбцов по самому дальнему минимальному значению в двумерном массиве:");
+Console.WriteLine(" ");
+Print2dArray(Trim2dArray(strToCut, columToCut, matrix));
 
-        }                        
-        
-            
+void Print2dArray(double[,] array2d){
+    for (int i = 0; i < array2d.GetLength(0); i++)
+    {
+        for (int j = 0; j < array2d.GetLength(1); j++)
+        {
+            Console.Write(" " + array2d[i, j]);
+        }
+        Console.WriteLine(" ");
     }
 }
+
+
+double[,] Trim2dArray(int rowToRemove, int columnToRemove, double[,] original2dArray)
+{
+    double[,] result = new double[original2dArray.GetLength(0) - 1, original2dArray.GetLength(1) - 1];
+
+    for (int i = 0, j = 0; i < original2dArray.GetLength(0); i++)
+    {
+        if (i == rowToRemove)
+            continue;
+
+        for (int k = 0, u = 0; k < original2dArray.GetLength(1); k++)
+        {
+            if (k == columnToRemove)
+                continue;
+
+            result[j, u] = original2dArray[i, k];
+            u++;
+        }
+        j++;
+    }
+
+    return result;
 }
