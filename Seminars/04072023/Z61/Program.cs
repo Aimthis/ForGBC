@@ -9,6 +9,7 @@ pascalData[1,0] = 1;
 pascalData[1,1] = 1;
 Console.WriteLine(pascalData[1,0] + " " + pascalData[1,1]);
 for(int i=2;i<pascalData.GetLength(0);i++){
+    pascalData[i,0] = 1;
     for(int j=1; j<pascalData.GetLength(1); j++){
     pascalData[i,j]+=pascalData[i-1,j]+pascalData[i-1,j-1];
     Console.Write(pascalData[i,j] + " ");
