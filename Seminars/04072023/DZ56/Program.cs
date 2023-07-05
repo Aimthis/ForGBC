@@ -1,4 +1,4 @@
-﻿﻿/*Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+﻿/*Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
 Например, задан массив:
 1 4 7 2
@@ -12,16 +12,19 @@ double[,] matrix = Array2d();
 double[] allSums = SumOfRowsInArray2d(matrix);
 Console.WriteLine();
 Console.WriteLine($"Номер строки с наименьшей суммой элементов : {FindLowest(allSums)}");
-double FindLowest(double[] plenty)
+int FindLowest(double[] plenty)
 {
     double low = plenty[0];
     int lowestIndex = 0;
     for (int i = 0; i < plenty.Length - 1; i++)
     {
         if (low > plenty[i + 1])
+        {
             low = plenty[i + 1];
+            lowestIndex = i + 1;
+        }
     }
-    return low;
+    return lowestIndex;
 }
 Console.WriteLine();
 
