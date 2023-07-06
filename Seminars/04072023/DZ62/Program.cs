@@ -8,13 +8,23 @@ double[,] Array2dSpiralFill()
     // Создаем двумерный массив на 4-4 строк, столбцов и значениями внутри по спирали от 1 с шагом в 1
     double[,] matrix = new double[new Random().Next(4, 5), new Random().Next(4, 5)];
     int fillValue = 1;
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    int size = matrix.GetLength(0);
+    int row =0;
+    while(size != 0)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int i = 0; i < size; i++)
         {
-            matrix[i, j] = fillValue;
+            matrix[row, i] = fillValue;
             fillValue++;
-            Console.Write(" " + matrix[i, j]);
+            Console.Write(" " + matrix[row, i]);
+        }
+        row++;
+        size--;
+        for (int j = row; j < size; j++)
+        {
+            matrix[j, size] = fillValue;
+            fillValue++;
+            Console.Write(" " + matrix[j,size]);
         }
         Console.WriteLine();
     }
