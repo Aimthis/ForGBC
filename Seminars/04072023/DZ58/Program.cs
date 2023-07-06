@@ -17,6 +17,7 @@ for(int i= 0;i<multiplication.GetLength(0);i++){
         resultofMult += firstMatrix[i,k]*secondMatrix[k,j];
         }
         multiplication[i,j] = resultofMult;
+        resultofMult = 0;
         Console.Write(" " + multiplication[i, j]);
     }
     Console.WriteLine(" ");
