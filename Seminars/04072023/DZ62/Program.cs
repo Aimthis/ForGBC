@@ -12,11 +12,10 @@ double[,] Array2dSpiralFill()
     int row =0;
     while(size != 0)
     {
-        for (int i = 0; i < size; i++)
+        for (int i = row; i < size; i++)
         {
             matrix[row, i] = fillValue;
             fillValue++;
-            Console.Write(" " + matrix[row, i]);
         }
         row++;
         size--;
@@ -24,9 +23,17 @@ double[,] Array2dSpiralFill()
         {
             matrix[j, size] = fillValue;
             fillValue++;
-            Console.Write(" " + matrix[j,size]);
         }
-        Console.WriteLine();
+        row=size;
+        for(int k = size-1; k>row-size;k--){
+            matrix[row,k] = fillValue;
+            fillValue++;
+        }
+        row--;
+        size--;
+        for(int l = row;;l-- ){
+
+        }
     }
     return matrix;
 }
