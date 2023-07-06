@@ -5,12 +5,17 @@
 Результирующая матрица будет:
 18 20
 15 18*/
-double firstMatrix = Array2d();
-double secondMatrix = Array2d();
+double[,] firstMatrix = Array2d();
+double[,] secondMatrix = Array2d();
 
-double multiplication = new double[firstMatrix.GetLength(0),firstMatrix.GetLength(1)];
-for(int i= 0;i<multiplication.GetLength(0);i++){
-    
+double[,] multiplication = new double[firstMatrix.GetLength(0),firstMatrix.GetLength(1)];
+Console.WriteLine("Результат перемножения");
+for(int i= 0;i<multiplication.GetLength(0)-1;i++){
+    for(int j= 0;j<multiplication.GetLength(0)-1;j++){
+        multiplication[i,j] = firstMatrix[i,j]*secondMatrix[i,j]+firstMatrix[i,j+1]*secondMatrix[i+1,j];
+        Console.Write(" " + multiplication[i, j]);
+    }
+    Console.WriteLine(" ");
 }
 
 
@@ -19,8 +24,8 @@ for(int i= 0;i<multiplication.GetLength(0);i++){
 double[,] Array2d()
 {
     Console.WriteLine("Создан двумерный массив содержащий следующие значения:");
-    // Создаем двумерный массив на 4-6 строк, столбцов и случайными значениями внутри от 0 до 9  
-    double[,] matrix = new double[new Random().Next(6, 7), new Random().Next(6, 7)];
+    // Создаем двумерный массив на 3-3 строк, столбцов и случайными значениями внутри от 0 до 9  
+    double[,] matrix = new double[new Random().Next(3, 4), new Random().Next(3, 4)];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
