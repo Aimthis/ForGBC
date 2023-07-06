@@ -10,9 +10,13 @@ double[,] secondMatrix = Array2d();
 
 double[,] multiplication = new double[firstMatrix.GetLength(0),firstMatrix.GetLength(1)];
 Console.WriteLine("Результат перемножения");
-for(int i= 0;i<multiplication.GetLength(0)-1;i++){
-    for(int j= 0;j<multiplication.GetLength(0)-1;j++){
-        multiplication[i,j] = firstMatrix[i,j]*secondMatrix[i,j]+firstMatrix[i,j+1]*secondMatrix[i+1,j];
+for(int i= 0;i<multiplication.GetLength(0);i++){
+    double resultofMult = 0;
+    for(int j= 0;j<multiplication.GetLength(1);j++){
+        for(int k=0;k<multiplication.GetLength(0);k++){
+        resultofMult += firstMatrix[i,k]*secondMatrix[k,j];
+        }
+        multiplication[i,j] = resultofMult;
         Console.Write(" " + multiplication[i, j]);
     }
     Console.WriteLine(" ");
