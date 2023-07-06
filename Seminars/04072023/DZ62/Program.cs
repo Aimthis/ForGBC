@@ -28,13 +28,13 @@ double[,] Array2dSpiralFill()
         }
         row++;
         size--;
-        for (int j = row; j < size; j++)
+        for (int j = row; j < size+1; j++)
         {
             matrix[j, size] = fillValue;
             fillValue++;
         }
         row = size;
-        for (int k = size - 1; k > row - size; k--)
+        for (int k = size - 1; k > column; k--)
         {
             matrix[row, k] = fillValue;
             fillValue++;
