@@ -34,20 +34,21 @@ double[,] Array2dSpiralFill()
             fillValue++;
         }
         row = size;
-        for (int k = size - 1; k > column; k--)
+        for (int k = size - 1; k > column-1; k--)
         {
             matrix[row, k] = fillValue;
             fillValue++;
         }
         row--;
         size--;
-        for (int l = row; l > column+1; l--)
+        for (int l = row; l > column; l--)
         {
             matrix[l, column] = fillValue;
             fillValue++;
         }
         column++;
         row=column;
+        size++;
     }
     return matrix;
 }
