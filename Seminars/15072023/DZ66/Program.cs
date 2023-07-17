@@ -18,7 +18,7 @@ uint VyvodSumOtMDoN(uint m, uint n)
     uint sum = 0;
     if (n == m)
         return n;
-    sum = n + VyvodSumOtMDoN(m,n - 1);
+    sum = n + VyvodSumOtMDoN(m, n - 1);
     return sum;
 }
 
