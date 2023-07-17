@@ -8,7 +8,7 @@ int firstNum = StringToInt("Пожалуйста, введите первое н
 
 // Создаю переменную secondNum для N с запросом на ввод
 Console.Clear();
-int secondNum = StringToInt("Пожалуйста, введите первое натуральное число больше 1: ");
+int secondNum = StringToInt("Пожалуйста, введите второе натуральное число больше первого: ");
 
 VyvodOtMDoN((uint)firstNum, (uint)secondNum);
 
