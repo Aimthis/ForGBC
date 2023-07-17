@@ -11,15 +11,15 @@ int firstNum = StringToInt("Пожалуйста, введите первое н
 Console.Clear();
 int secondNum = StringToInt("Пожалуйста, введите второе натуральное число больше первого: ");
 
-VyvodSumOtMDoN((uint)firstNum, (uint)secondNum);
+Console.Write($"{VyvodSumOtMDoN((uint)firstNum, (uint)secondNum)} ");
 
 uint VyvodSumOtMDoN(uint m, uint n)
 {
-    if (n == m - 1)
+    uint sum = 0;
+    if (n == m)
         return n;
-    VyvodOtMDoN(m,n - 1);
-    Console.Write($"{n} ");
-    return 1;
+    sum = n + VyvodSumOtMDoN(m,n - 1);
+    return sum;
 }
 
 int StringToInt(string message)
