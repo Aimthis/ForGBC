@@ -1,2 +1,30 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿/*Задача 67: Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
+453 -> 12
+45 -> 9
+*/
+// Создаю переменную num для N с запросом на ввод
+Console.Clear();
+int num = StringToInt("Пожалуйста, введите натуральное число больше 1: ");
+
+int SumOfDigitsInNumber(int x)
+{
+    if (x != 0)
+    {
+        int result = result + x % 10;
+        x /= 10;
+    }
+}
+
+int StringToInt(string message)
+{
+    Console.Write(message);
+    string value = Console.ReadLine();
+    int result = Convert.ToInt32(value);
+    return result;
+}
+
+string PrintNumbers(int start, int end)
+{
+    if (start == end) return start.ToString();
+    return (start + " " + PrintNumbers(start + 1, end));
+}
