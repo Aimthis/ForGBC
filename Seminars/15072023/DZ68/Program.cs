@@ -10,16 +10,15 @@ uint firstNum = StringToInt("Пожалуйста, введите первое �
 Console.Clear();
 uint secondNum = StringToInt("Пожалуйста, введите второе натуральное число N для функции Аккермана: ");
 
-long Akkermana(uint m, uint n)
+long Akkermana(uint n, uint m)
 {
-    if (m == 0)
-    {
-        return n + 1;
-    }
-    m--;
     if (n == 0)
-        return
-
+        return m + 1;
+    else
+    if (n != 0 && m == 0)
+        return Akkermana(n-1,1);
+        else
+        return Akkermana(n-1,Akkermana(n,m-1));
 }
 
 
