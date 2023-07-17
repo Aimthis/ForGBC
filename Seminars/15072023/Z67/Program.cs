@@ -5,14 +5,14 @@
 // Создаю переменную num для N с запросом на ввод
 Console.Clear();
 int num = StringToInt("Пожалуйста, введите натуральное число больше 1: ");
+Console.Write(SumOfDigitsInNumber(num));
 
 int SumOfDigitsInNumber(int x)
 {
-    if (x != 0)
-    {
-        int result = result + x % 10;
-        x /= 10;
-    }
+    if (x == 0)
+        return 0;
+    int result = x % 10 + SumOfDigitsInNumber(x / 10);
+    return result;
 }
 
 int StringToInt(string message)
