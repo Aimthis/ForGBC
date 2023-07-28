@@ -3,23 +3,42 @@
  При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.*/ 
 Console.Clear();
 Console.WriteLine("Хотите начать ввод данных? Нажмите - Y (да) чтобы начать. Нажмите - N (нет) чтобы завершить");
+Console.WriteLine("Для случайной генерации данных нажмите - R");
 string inputString = string.Empty;
 string value = Console.ReadLine();
+Random random = new Random();
 while (true)
 {
-    if(value == "n" || value == "N")
-        break;
+    if(value == "r" || value == "R")
+        inputString += RandomString(random.Next(1,10)) + "<-*->";
+        Console.Clear();
+        Console.WriteLine("Добавлены случайные данные " + inputString);
+        Console.WriteLine("Желаете ли добавить другие данные? Нажмите - Y (да) чтобы добавить в ручную. Нажмите - N (нет) чтобы завершить");
+        Console.WriteLine("Нажмите - R для генерации случайных данных");
+        value = Console.ReadLine();
+        continue;
     if(value == "y" || value == "Y"){
     Console.WriteLine();
         Console.Write("Введите данные : ");
         value = Console.ReadLine();
         inputString += value + "<-*->";
         Console.Clear();
-        Console.WriteLine("Желаете ли добавить другие данные? Нажмите - Y (да) чтобы начать. Нажмите - N (нет) чтобы завершить");
+        Console.WriteLine("Желаете ли добавить другие данные? Нажмите - Y (да) чтобы добавить в ручную. Нажмите - N (нет) чтобы завершить");
+        Console.WriteLine("Нажмите - R для генерации случайных данных");
+        value = Console.ReadLine();
+        continue;
     }
+    if(value == "n" || value == "N")
+        break;
     else{
-        Console.WriteLine("Пожалуйста нажмите Y или N");
+        Console.WriteLine("Пожалуйста нажмите Y, N или R");
         value = Console.ReadLine();
     }
 }
 Console.WriteLine(inputString);
+
+string RandomString(int length)
+{
+    const string chars = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
+}
