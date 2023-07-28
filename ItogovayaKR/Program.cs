@@ -48,6 +48,7 @@ for (int i = 0; i < arrayOfStrings.Length-1; i++)
     count ++;
     }
 }
+Console.Write(" |");
 Console.WriteLine();
 Console.WriteLine("Среди полученных данных следующие состоят из 3 и меньше символов : " + outputString);
 string RandomString(int length)
