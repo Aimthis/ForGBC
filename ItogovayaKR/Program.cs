@@ -9,17 +9,18 @@ string value = Console.ReadLine();
 Random random = new Random();
 while (true)
 {
-    if(value == "r" || value == "R")
+    if(value == "r" || value == "R"){
         inputString += RandomString(random.Next(1,10)) + "|";
         Console.Clear();
         Console.WriteLine("Добавлены случайные данные : " + inputString);
+    }
     if(value == "y" || value == "Y"){
     Console.WriteLine();
         Console.Write("Введите данные : ");
         value = Console.ReadLine();
         inputString += value + "|";
-        Console.WriteLine("Добавлены следующие данные : " + inputString);
         Console.Clear();
+        Console.WriteLine("Добавлены следующие данные : " + inputString);
         Console.WriteLine("Желаете ли добавить другие данные? Нажмите - Y (да) чтобы добавить в ручную. Нажмите - N (нет) чтобы завершить");
         Console.WriteLine("Нажмите - R для генерации случайных данных");
         value = Console.ReadLine();
