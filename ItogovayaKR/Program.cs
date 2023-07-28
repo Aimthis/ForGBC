@@ -12,12 +12,13 @@ while (true)
     if(value == "r" || value == "R")
         inputString += RandomString(random.Next(1,10)) + "|";
         Console.Clear();
-        Console.WriteLine("Добавлены случайные данные " + inputString);
+        Console.WriteLine("Добавлены случайные данные : " + inputString);
     if(value == "y" || value == "Y"){
     Console.WriteLine();
         Console.Write("Введите данные : ");
         value = Console.ReadLine();
         inputString += value + "|";
+        Console.WriteLine("Добавлены следующие данные : " + inputString);
         Console.Clear();
         Console.WriteLine("Желаете ли добавить другие данные? Нажмите - Y (да) чтобы добавить в ручную. Нажмите - N (нет) чтобы завершить");
         Console.WriteLine("Нажмите - R для генерации случайных данных");
@@ -35,10 +36,20 @@ while (true)
 }
 
 string[] arrayOfStrings = inputString.Split(new char[] { '|' });
-for (int i = 0; i < arrayOfStrings.Length; i++)
+string outputString = string.Empty;
+int count = 1;
+Console.Clear();
+Console.WriteLine("Получен следующий массив из данных : ");
+for (int i = 0; i < arrayOfStrings.Length-1; i++)
 {
-Console.WriteLine(arrayOfStrings[i]);  
+    Console.Write(" | " + arrayOfStrings[i]);
+    if(arrayOfStrings[i].Length < 4){
+    outputString += count + ". " + arrayOfStrings[i] + "; ";
+    count ++;
+    }
 }
+Console.WriteLine();
+Console.WriteLine("Среди полученных данных следующие состоят из 3 и меньше символов : " + outputString);
 string RandomString(int length)
 {
     const string chars = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
