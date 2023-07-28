@@ -10,7 +10,7 @@ Random random = new Random();
 while (true)
 {
     if(value == "r" || value == "R")
-        inputString += RandomString(random.Next(1,10)) + "<-*->";
+        inputString += RandomString(random.Next(1,10)) + "|";
         Console.Clear();
         Console.WriteLine("Добавлены случайные данные " + inputString);
         Console.WriteLine("Желаете ли добавить другие данные? Нажмите - Y (да) чтобы добавить в ручную. Нажмите - N (нет) чтобы завершить");
@@ -21,7 +21,7 @@ while (true)
     Console.WriteLine();
         Console.Write("Введите данные : ");
         value = Console.ReadLine();
-        inputString += value + "<-*->";
+        inputString += value + "|";
         Console.Clear();
         Console.WriteLine("Желаете ли добавить другие данные? Нажмите - Y (да) чтобы добавить в ручную. Нажмите - N (нет) чтобы завершить");
         Console.WriteLine("Нажмите - R для генерации случайных данных");
@@ -35,8 +35,9 @@ while (true)
         value = Console.ReadLine();
     }
 }
-Console.WriteLine(inputString);
 
+string[] arrayOfStrings = inputString.Split(new string[] { '|' });
+Console.WriteLine(arrayOfStrings);
 string RandomString(int length)
 {
     const string chars = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
