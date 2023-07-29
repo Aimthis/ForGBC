@@ -2,33 +2,26 @@
 {
     public int LengthOfLongestSubstring(string s)
     {
-        string subStr = s[0].ToString();
-        string check = string.Empty;
+        string subStr = "";
+        int check = 0;
         for (int i = 0; i < s.Length; i++)
         {
-            if (subStr.Contains(s[i].ToString()) == false)
-                subStr += s[i];
-            else
+            for (int j = i; j < s.Length; j++)
             {
-                for (int j = i; j < s.Length; j++)
+                if (subStr.Length > 0)
                 {
-                    i = j;
-                    if (check.Contains(s[j].ToString()) == false)
-                    check += s[j];
+                    if (subStr.Contains(s[j].ToString()) == false)
+                        subStr += s[j];
+                    else
+                        break;
                 }
+                else
+                    subStr += s[j];
             }
-            if (check.Length > subStr.Length)
-                break;
-            else{
-                check = subStr;
-                subStr = string.Empty;
-            }
+            if (subStr.Length > check)
+                check = subStr.Length;
+            subStr = "";
         }
-        if (check.Length >= subStr.Length)
-            return check.Length;
-        else if (check.Length < subStr.Length)
-            return subStr.Length;
-        else
-            return 0;
+        return check;
     }
 }
